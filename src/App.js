@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Radium, {StyleRoot} from 'radium';
 import Person from './Person/Person';
 
 class App extends Component {
@@ -51,19 +52,25 @@ class App extends Component {
   render() {
 
     const style = {
-      backgroundColor: '#93B0BA',
+      backgroundColor: 'green',
+      color: '#fff', 
       font: 'inherit',
       border: '1px solid blue',
       padding: '8px',
-      cursor: 'pointer'
+      cursor: 'pointer',
+      ':hover': {
+        backgroundColor: 'lightgreen',
+        color: 'black' 
+      }
     };
+
 
 
     let peronas = null;
 
     if(this.state.showPersons){
       peronas = (
-        <div style={style}>
+        <div>
         {this.state.persons.map((person, index) => {
         // convert this array to valid jsx & reder the array with map()
         // will exc a method on the given arr
@@ -80,18 +87,35 @@ class App extends Component {
           {/* <button   
           onClick={this.switchNameHandler.bind(this, 'Igorka')}>Switch Name</button> */}
           </div>
-      )
+      );
+      style.backgroundColor = 'red';
+      style[':hover'] = {
+        backgroundColor: 'salmon',
+        color: 'black'
+      }
     }
 
+    let classes = [];
+    if(this.state.persons.length <= 2){
+      classes.push('red'); // classes will be red
+    } 
+    if(this.state.persons.length <= 1){
+      classes.push('bold'); // classes: red, bold
+    }
+    
 
     return (
-      <div className="App">
-        <button onClick={this.togglePersonHandler}>Toggle View</button>
-        
-        {peronas}
-      </div>
+      <StyleRoot>
+        <div className="App">
+        {/* we have to pass join() as we need space between classes  */}
+        <h2 className={classes.join(' ')}>This is really wroking!</h2>
+          <button style={style} onClick={this.togglePersonHandler}>Toggle View</button>
+          
+          {peronas}
+        </div>
+      </StyleRoot>
     );
   }
 }
 
-export default App;
+export default Radium(App);// higher order component 
