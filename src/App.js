@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import Radium, {StyleRoot} from 'radium';
 import Person from './Person/Person';
 
 class App extends Component {
@@ -89,10 +88,6 @@ class App extends Component {
           </div>
       );
       style.backgroundColor = 'red';
-      style[':hover'] = {
-        backgroundColor: 'salmon',
-        color: 'black'
-      }
     }
 
     let classes = [];
@@ -105,7 +100,6 @@ class App extends Component {
     
 
     return (
-      <StyleRoot>
         <div className="App">
         {/* we have to pass join() as we need space between classes  */}
         <h2 className={classes.join(' ')}>This is really wroking!</h2>
@@ -113,9 +107,8 @@ class App extends Component {
           
           {peronas}
         </div>
-      </StyleRoot>
     );
   }
 }
 
-export default Radium(App);// higher order component 
+export default App;// higher order component 
