@@ -10,3 +10,25 @@
   font-weight: 900;
 }
 
+.App button {
+  border: 1px solid blue;
+  border-radius: 5%;
+  padding: 10px 16px;
+  background: green;
+  font: inherit;
+  cursor: pointer;
+}
+
+.App button:hover{
+  background: lightgreen;
+  color: #fff;
+}
+
+.App button.Red {
+  background: red;
+}
+
+.App button.Red:hover{
+  background: salmon;
+  color: #fff;
+}

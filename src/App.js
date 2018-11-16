@@ -50,22 +50,8 @@ class App extends Component {
 
   render() {
 
-    const style = {
-      backgroundColor: 'green',
-      color: '#fff', 
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer',
-      ':hover': {
-        backgroundColor: 'lightgreen',
-        color: 'black' 
-      }
-    };
-
-
-
     let peronas = null;
+    let buttonClass = ' ';
 
     if(this.state.showPersons){
       peronas = (
@@ -87,7 +73,7 @@ class App extends Component {
           onClick={this.switchNameHandler.bind(this, 'Igorka')}>Switch Name</button> */}
           </div>
       );
-      style.backgroundColor = 'red';
+      buttonClass = classes.Red;
     }
 
     let assignedClasses = [];
@@ -103,7 +89,9 @@ class App extends Component {
         <div className={classes.App}>
         {/* we have to pass join() as we need space between classes  */}
         <h2 className={assignedClasses.join(' ')}>This is really wroking!</h2>
-          <button style={style} onClick={this.togglePersonHandler}>Toggle View</button>
+          <button 
+          className={buttonClass}
+          onClick={this.togglePersonHandler}>Toggle View</button>
           
           {peronas}
         </div>
