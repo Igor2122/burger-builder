@@ -1,7 +1,9 @@
+// eslint-disable-next-line
 import React, { Component } from 'react';
-import classes from './App.css';
+// import classes from './App.css';
 import Layout from './components/Layout/Layout';
 import './index.css';
+import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder';
 
 
 
@@ -11,7 +13,7 @@ class App extends Component {
     return(
       <div>
         <Layout>
-          <p>Test</p>
+          <BurgerBuilder />
         </Layout>
       </div>
     );
