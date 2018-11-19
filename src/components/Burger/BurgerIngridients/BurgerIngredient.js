@@ -3,8 +3,10 @@ import classes from './BurgerIngredient.css';
 import PropTypes from 'prop-types';
 
 class BurgerIngredient extends Component {
+    
     render () {
-        let ingredient = null;
+    
+    let ingredient = null;
     
     switch(this.props.type) {
         case('bread-bottom'): 

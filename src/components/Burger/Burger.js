@@ -2,17 +2,18 @@ import React from 'react';
 import classes from './Burger.css';
 import BurgerIngredient from './BurgerIngridients/BurgerIngredient';
 
+
+
 const burger = (props) => {
-    
-    
-    let transformedIngredients = Object.keys(props.ingredients).map(igridKey => {
-       return [...Array(props.ingredients[igridKey])].map((_, i) => {
+    let transformedIngredients = Object.keys(props.ingredients)
+    .map(igridKey => {
+       return [ ...Array( props.ingredients[igridKey] )].map((_, i) => {
           return <BurgerIngredient key={igridKey + i} type={igridKey} />;
        });
     })
     .reduce((arr, el) => { // pass here prev value & current value
         return arr.concat(el); // here we add them both 
-    }, );
+    }, []);
     
     console.log(transformedIngredients);
     
