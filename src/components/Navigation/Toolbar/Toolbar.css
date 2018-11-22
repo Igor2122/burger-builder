@@ -21,8 +21,13 @@
     height: 80%;
 }
 
+.HabrgrLogo {
+    width: 10%;
+}
+
 @media (max-width: 499px) {
     .DispNoneDesctop {
         display: none;
     }
+    
 }
