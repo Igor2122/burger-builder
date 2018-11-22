@@ -21,16 +21,17 @@ return (
       <ul>
          {ingresintSummary}
       </ul> 
-      
+      <p><strong>Total Summary: {props.price.toFixed(2)}</strong></p>
       <Button
          btntype="Danger"
          clicked={props.pruchaseCancelled}>Cancel
       </Button> 
-
-      <button
+      <Button
          btntype="Success"
-         clicked={props.pruchaseContinues}>Continue with order
-      </button>
+         clicked={props.pruchaseContinues}>Continue With Purchase
+      </Button> 
+
+      
    </Aux>
 );
 }
