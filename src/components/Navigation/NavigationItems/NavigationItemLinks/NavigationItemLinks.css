@@ -1,7 +1,29 @@
+.NavigationItemsLinks {
+    margin: 10px 0;
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+}
+
+.NavigationItemsLinks a {
+    color: #8f5cac;
+    text-decoration: none;
+    width: 100%;
+    padding: 16px 10px;
+    box-sizing: border-box;
+    display: block;
+}
+
+.NavigationItemsLinks a:hover,
+.NavigationItemsLinks a:active,
+.NavigationItemsLinks a.active {
+    color: #40acb;
+}
+
+
 @media (min-width: 500px) {
     .NavigationItemsLinks {
         margin: 0;
-        box-sizing: border-box;
         display: flex;
         align-items: center;
         height: 100%;
@@ -10,12 +32,9 @@
 
     .NavigationItemsLinks a {
         color: #fff;
-        text-decoration: none;
         height: 100%;
         padding: 16px 10px;
         border-bottom: 4px solid transparent;
-        box-sizing: border-box;
-        display: block;
     }
 
     .NavigationItemsLinks a:hover,
