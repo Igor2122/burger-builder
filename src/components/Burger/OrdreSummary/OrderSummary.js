@@ -32,11 +32,12 @@ class OrderSummary extends Component {
             btntype="Danger"
             clicked={this.props.pruchaseCancelled}>Cancel
          </Button> 
+
    
-         <button
+         <Button
             btntype="Success"
-            clicked={this.props.pruchaseContinues}>Continue with order
-         </button>
+            clicked={this.props.purchaseProceed}>Continue with order
+         </Button>
       </Aux>
 );
 }
