@@ -12,10 +12,10 @@ return (
          <Burger ingredients={props.ingredients}/>
       <Button 
          btntype="Danger"
-         clicked>Cancel</Button>
+         clicked={props.onCheckoutCancelled}>Cancel</Button>
       <Button 
          btntype="Success"
-         clicked>Continue</Button>
+         clicked={props.onCheckoutContinued}>Continue</Button>
       </div>
    </div>
 );
