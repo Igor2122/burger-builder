@@ -2,9 +2,12 @@ import React from 'react';
 import classes from './Burger.css';
 import BurgerIngredient from './BurgerIngridients/BurgerIngredient';
 
+import { withRouter } from 'react-router-dom'// higher order comp by react-router-dom
+
 
 
 const burger = (props) => {
+    console.log(props);
     let transformedIngredients = Object.keys(props.ingredients)
     .map(igridKey => {
        return [ ...Array( props.ingredients[igridKey] )].map((_, i) => {
@@ -29,4 +32,4 @@ const burger = (props) => {
     );
 }
 
-export default burger;
+export default withRouter(burger);

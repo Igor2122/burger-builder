@@ -27,6 +27,7 @@ class BurgerBuilder extends Component {
     }
     
     componentDidMount () {
+        console.log(this.props);
         axios.get('https://burger-b7a77.firebaseio.com/orders/ingredients.json')
         .then(response => {
             this.setState({ingredients: response.data})
@@ -96,29 +97,30 @@ class BurgerBuilder extends Component {
 
     purchaseContinueHandler = () => {
         // alert('You Continue');
-        this.setState({
-            loading: true
-        });
-        const order = {
-            ingredients: this.state.ingredients,
-            price: this.state.totalPrice,
-            customer: {
-                name: 'Igor',
-                adress: 'test street',
-                country: 'Bahrain',
-                email: 'test@test.com'
-            },
-            deliveryMethod: 'fast'
-        };
-        axios.post('/orders.json', order)
-        .then(response => {
-            this.setState({ loading: false, purchasing: false });
-            // console.log(response);
-        })
-        .catch(error => {
-                this.setState({ loading: false, purchasing: false });
-                console.log(error);
-            });
+        // this.setState({
+        //     loading: true
+        // });
+        // const order = {
+        //     ingredients: this.state.ingredients,
+        //     price: this.state.totalPrice,
+        //     customer: {
+        //         name: 'Igor',
+        //         adress: 'test street',
+        //         country: 'Bahrain',
+        //         email: 'test@test.com'
+        //     },
+        //     deliveryMethod: 'fast'
+        // };
+        // axios.post('/orders.json', order)
+        // .then(response => {
+        //     this.setState({ loading: false, purchasing: false });
+        //     // console.log(response);
+        // })
+        // .catch(error => {
+        //         this.setState({ loading: false, purchasing: false });
+        //         console.log(error);
+        //     });
+        this.props.history.push('/checkout');
     }
     
     render () {

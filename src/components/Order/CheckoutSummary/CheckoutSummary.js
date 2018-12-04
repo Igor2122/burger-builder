@@ -10,13 +10,13 @@ return (
       <h1>We hope it tastes well!</h1> 
       <div style={{width: '100%', height: '300px', margin: 'auto'}}>
          <Burger ingredients={props.ingredients}/>
-      </div>
       <Button 
-         btnType="Danger"
+         btntype="Danger"
          clicked>Cancel</Button>
       <Button 
-         btnType="Success"
+         btntype="Success"
          clicked>Continue</Button>
+      </div>
    </div>
 );
 }

@@ -1,5 +1,7 @@
 // eslint-disable-next-line
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
+
 // import classes from './App.css';
 import Layout from './components/Layout/Layout';
 import './index.css';
@@ -13,8 +15,10 @@ class App extends Component {
     return(
       <div>
         <Layout>
-          <BurgerBuilder />
-          <Checkout />
+        <Route path="/" exact component={BurgerBuilder} />
+        <Route path="/checkout" component={Checkout} />
+          { /* <BurgerBuilder />
+          <Checkout /> */}
         </Layout>
       </div>
     );
