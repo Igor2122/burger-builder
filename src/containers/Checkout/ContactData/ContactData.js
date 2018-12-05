@@ -68,10 +68,14 @@ class ContactData extends Component {
         this.setState({
             loading: true
         });
+        const formData = {}
+        for (let formElementIndentifier in this.state.orderForm){
+            formData[formElementIndentifier] = this.state.orderForm[formElementIndentifier].value;
+        }
         const order = {
             ingredients: this.props.ingredients,
             price: this.props.price,
-            
+            orderData: formData
         };
         axios.post('/orders.json', order)
         .then(response => {
@@ -84,6 +88,20 @@ class ContactData extends Component {
                 console.log(error);
             });
     }
+
+
+    inputChnagedHandler = (event, inputIndentifier) => {
+        // console.log(event.target.value);
+        const updatedOrderForm = {
+            ...this.state.orderForm
+        }
+        const updatedFormElement = {
+            ...updatedOrderForm[inputIndentifier]
+        }
+        updatedFormElement.value = event.target.value;
+        updatedOrderForm[inputIndentifier] = updatedFormElement;
+        this.setState({orderForm: updatedOrderForm});
+    }
     
     render () {
         
@@ -95,19 +113,18 @@ class ContactData extends Component {
             })
         }
 
-
-
         let form = (
-                    <form>
+                    <form onSubmit={this.orderHandler}>
                         {formElements.map(formElement => (
                             <Input 
                             key={formElement.id }
                             elementType={formElement.config.elementType} 
                             elementConfig={formElement.config.elementConfig}
                             value={formElement.config.value}
+                            changed={(event) => this.inputChnagedHandler(event, formElement.id)}
                             />
                         ))}
-                        <Button btntype="Success" clicked={this.orderHandler}>ORDER</Button>
+                        <Button btntype="Success" >ORDER</Button>
                     </form>
                     );
         if (this.state.loading) {
