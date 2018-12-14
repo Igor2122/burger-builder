@@ -11,18 +11,11 @@ import axios from '../../axios-orders.js';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import * as actionTypes from '../../store/actions';
 
-// eslint-disable-next-line
-const INGRIDIENT_PRICES = {
-    salad: 0.5,
-    cheese: 0.4,
-    meat: 1.3,
-    bacon: 1.7
-}
+
 
 class BurgerBuilder extends Component {
 
     state = {
-        totalPrice: 4, // base price 
         purchasable: false,
         purchasing: false,
         loading: false,
@@ -135,7 +128,7 @@ class BurgerBuilder extends Component {
                             ingredientAdded={this.props.onIngredientAdded}
                             ingredientRemoved={this.props.onIngredientRemoved}
                             disabled={disabledInfo}
-                            totalPrice={this.state.totalPrice}
+                            totalPrice={this.props.price}
                             purchasable={this.state.purchasable}
                             ordered={this.purchaseHandler}
                         />
@@ -143,7 +136,7 @@ class BurgerBuilder extends Component {
                         );  
             orderSummary = <OrderSummary 
                                 ingredients={this.props.ing} 
-                                price={this.state.totalPrice}
+                                price={this.props.price}
                                 pruchaseCancelled={this.purchaseCancelledHandler}
                                 purchaseProceed={this.purchaseContinueHandler}
                             /> ;
@@ -168,7 +161,8 @@ class BurgerBuilder extends Component {
 
 const mapStateToProps = state => {
     return{
-        ing: state.ingredients
+        ing: state.ingredients,
+        price: state.totalPrice
     };
 };
 
@@ -177,6 +171,7 @@ const mapDispatchToProps = disptch => {
                                     // ingridientName -- is send with an action 
         onIngredientAdded: (ingName) => disptch({type: actionTypes.ADD_INGREDIENT, ingridientName: ingName}),
         onIngredientRemoved: (ingName) => disptch({type: actionTypes.REMOVE_INGREDIENT, ingridientName: ingName})
+        
     };
 };
 
