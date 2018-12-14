@@ -11,6 +11,7 @@ import axios from '../../axios-orders.js';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import * as actionTypes from '../../store/actions';
 
+// eslint-disable-next-line
 const INGRIDIENT_PRICES = {
     salad: 0.5,
     cheese: 0.4,
@@ -119,6 +120,8 @@ class BurgerBuilder extends Component {
         };
         for(let key in disabledInfo){
             disabledInfo[key] = disabledInfo[key] <= 0;
+            console.log(disabledInfo[key]);
+            
         }
         
         let orderSummary = null;
@@ -177,5 +180,5 @@ const mapDispatchToProps = disptch => {
     };
 };
 
-
-export default connect(mapDispatchToProps, mapStateToProps)(withErrorHandler(BurgerBuilder, axios));
+                    // order here is important match state should be first
+export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(BurgerBuilder, axios));

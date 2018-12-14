@@ -10,8 +10,7 @@ const initialState = {
     totalPrice: 4, // base price 
 };
 
-const reduser = (state = initialState, action) => {
-    
+const reduser = (state = initialState, action) => {    
     switch (action.type) {
         case actionTypes.ADD_INGREDIENT:    
             return {
@@ -19,14 +18,14 @@ const reduser = (state = initialState, action) => {
                 ingredients: {
                     ...state.ingredients,// we need to add this as well only doing it in the sate will not do the job
                     [action.ingridientName]: state.ingredients[action.ingridientName] + 1
-                    // we get ingridientName as a payload and with this new syntax we can access the exact ingridient
+                    // we get ingridientName as a payload with the action needs to be send with the payload
                 }
             };
         case actionTypes.REMOVE_INGREDIENT:
             return {
-                ...state,// imutably copy 
+                ...state,
                 ingredients: {
-                    ...state.ingredients,// we need to add this as well only doing it in the sate will not do the job
+                    ...state.ingredients,
                     [action.ingridientName]: state.ingredients[action.ingridientName] - 1
                     // we get ingridientName as a payload and with this new syntax we can access the exact ingridient
                 }
