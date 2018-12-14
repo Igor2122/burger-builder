@@ -28,17 +28,18 @@ class BurgerBuilder extends Component {
         error: false
     }
     
-    // componentDidMount () {
-    //     console.log(this.props);
-    //     axios.get('https://burger-b7a77.firebaseio.com/orders/ingredients.json')
-    //     .then(response => {
-    //         this.setState({ingredients: response.data})
-    //     })
-    //     .catch(error => {
-    //         this.setState({error: true
-    //         })
-    //     });
-    // }
+    componentDidMount () {
+        // console.log(this.props);
+        // axios.get('https://burger-b7a77.firebaseio.com/orders/ingredients.json')
+        // .then(response => {
+        //     this.setState({ingredients: response.data})
+        // })
+        // .catch(error => {
+        //     this.setState({error: true
+        //     })
+        // });
+    }
+
     
     updatePurchaseState ()  {
         const ingredients = {
@@ -170,6 +171,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = disptch => {
     return {
+                                    // ingridientName -- is send with an action 
         onIngredientAdded: (ingName) => disptch({type: actionTypes.ADD_INGREDIENT, ingridientName: ingName}),
         onIngredientRemoved: (ingName) => disptch({type: actionTypes.REMOVE_INGREDIENT, ingridientName: ingName})
     };

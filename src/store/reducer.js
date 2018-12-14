@@ -15,7 +15,7 @@ const reduser = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.ADD_INGREDIENT:    
             return {
-                ...state,// imurably copy 
+                ...state,// imutably copy 
                 ingredients: {
                     ...state.ingredients,// we need to add this as well only doing it in the sate will not do the job
                     [action.ingridientName]: state.ingredients[action.ingridientName] + 1
@@ -24,7 +24,7 @@ const reduser = (state = initialState, action) => {
             };
         case actionTypes.REMOVE_INGREDIENT:
             return {
-                ...state,// imurably copy 
+                ...state,// imutably copy 
                 ingredients: {
                     ...state.ingredients,// we need to add this as well only doing it in the sate will not do the job
                     [action.ingridientName]: state.ingredients[action.ingridientName] - 1
