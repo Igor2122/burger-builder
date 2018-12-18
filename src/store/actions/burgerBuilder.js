@@ -21,13 +21,13 @@ export const fetchIngredientsFailed = () => {
    return {
       type: actionTypes.FETCH_INGRIDIENTS_FAILED
    }
-}
+};
 
 export const setIngredients = (ingredients) => {
    return {
-      type: actionTypes.setIngredients,
-      ingredients: ingredients // the name is free value should be the same as passed to the function 
-   }
+      type: actionTypes.SET_INGREDIENTS,
+      ingredients: ingredients // the name is free value should function argument 
+   };
 }
 
 export const fetchIngredients = () => {

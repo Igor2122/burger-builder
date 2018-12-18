@@ -37,6 +37,23 @@ const reduser = (state = initialState, action) => {
                 },
                 totalPrice: state.totalPrice - INGRIDIENT_PRICES[action.ingridientName]
             };
+            case actionTypes.SET_INGREDIENTS:
+                return {
+                    ...state, 
+                    ingredients: {
+                        salad: action.ingredients.salad,
+                        bacon: action.ingredients.bacon,
+                        cheese: action.ingredients.cheese,
+                        meat: action.ingredients.meat
+                    },
+                    error: false // here we reset the error in case we had it earlier and reset it here
+                }
+            case actionTypes.FETCH_INGRIDIENTS_FAILED:  
+                return {
+                    ...state, 
+                    error: true
+                };
+            
         default: return state;    
     }
 };
