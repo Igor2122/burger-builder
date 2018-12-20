@@ -46,6 +46,7 @@ const reduser = (state = initialState, action) => {
                         cheese: action.ingredients.cheese,
                         meat: action.ingredients.meat
                     },
+                    totalPrice: 4,
                     error: false // here we reset the error in case we had it earlier and reset it here
                 }
             case actionTypes.FETCH_INGRIDIENTS_FAILED:  
